@@ -22,6 +22,7 @@ class KeyGenerator
   end
 
   def key_generator
-  end 
+    '%05d' % rand(10 ** 5)
+  end
 
 end

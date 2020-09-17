@@ -23,10 +23,10 @@ class KeyGeneratorTest < Minitest::Test
   end
 
   def test_it_can_generate_a_random_key_without_argument
+    #How to use stubs here with key_generator?
     key_2 = KeyGenerator.new
-    assert_instance_of KeyGenerator, key_2
-    key_2.stubs(:key_generator).returns("50283")
-    assert_equal "50283", key_2.key 
+    key_2.stubs(:key).returns("50283")
+    assert_equal "50283", key_2.key
   end
 
 end
