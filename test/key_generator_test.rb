@@ -8,6 +8,12 @@ class KeyGeneratorTest < Minitest::Test
     assert_equal "02794", key_1.key
   end
 
+  def test_it_can_split_key_into_array
+    key_1 = KeyGenerator.new("02794")
+    expected = ["0", "2", "7", "9", "4"]
+    assert_equal expected, key_1.split_key
+  end
+
   def test_it_can_assign_digits_to_shit_keys
     key_1 = KeyGenerator.new("02794")
     assert_equal "02", key_1.a_key
