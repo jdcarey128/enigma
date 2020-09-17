@@ -22,15 +22,11 @@ class KeyGeneratorTest < Minitest::Test
     assert_equal "94", key_1.shift_keys['d']
   end
 
-
-  # def test_it_can_assign_digits_to_shift_keys
-  #   key_1 = KeyGenerator.new("02794")
-  #   assert_equal "02", key_1.a_key
-  #   assert_equal "27", key_1.b_key
-  #   assert_equal "79", key_1.c_key
-  #   assert_equal "94", key_1.d_key
-  # end
-
-
+  def test_it_can_generate_a_random_key_without_argument
+    key_2 = KeyGenerator.new
+    assert_instance_of KeyGenerator, key_2
+    key_2.stubs(:key_generator).returns("50283")
+    assert_equal "50283", key_2.key 
+  end
 
 end
