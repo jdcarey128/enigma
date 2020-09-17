@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.12.2/application.js' type='text/javascript'></script>
     <link href='./assets/0.12.2/application.css' media='screen, projection, print' rel='stylesheet' type='text/css' />
-    <link rel="shortcut icon" type="image/png" href="./assets/0.12.2/favicon_green.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.12.2/favicon_red.png" />
     <link rel="icon" type="image/png" href="./assets/0.12.2/favicon.png" />
   </head>
 
@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-09-17T17:05:31-06:00">2020-09-17T17:05:31-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-09-17T17:14:09-06:00">2020-09-17T17:14:09-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -22,15 +22,15 @@
   <h2>
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
-      <span class="green">
-  100.0%
+      <span class="red">
+  73.68%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
-       <span class="green">
-         1.78
+       <span class="red">
+         0.74
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>18</b> relevant lines,
-    <span class="green"><b>18</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed. </span>
-    (<span class="green">
-  100.0%
+    <b>19</b> relevant lines,
+    <span class="green"><b>14</b> lines covered</span> and
+    <span class="red"><b>5</b> lines missed. </span>
+    (<span class="red">
+  73.68%
 </span>
 )
   </div>
@@ -83,12 +83,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#e57e7ac173e8131ac6cf30a9adf15c8d3c8aa949" class="src_link" title="lib/key_generator.rb">lib/key_generator.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">32</td>
-            <td class="cell--number">18</td>
-            <td class="cell--number">18</td>
-            <td class="cell--number">0</td>
-            <td class="cell--number">1.78</td>
+            <td class="red strong cell--number t-file__coverage">73.68 %</td>
+            <td class="cell--number">41</td>
+            <td class="cell--number">19</td>
+            <td class="cell--number">14</td>
+            <td class="cell--number">5</td>
+            <td class="cell--number">0.74</td>
             
           </tr>
         
@@ -166,8 +166,8 @@
   <div class="header">
     <h3>lib/key_generator.rb</h3>
     <h4>
-      <span class="green">
-  100.0%
+      <span class="red">
+  73.68%
 </span>
 
       lines covered
@@ -176,9 +176,9 @@
     
 
     <div class="t-line-summary">
-      <b>18</b> relevant lines.
-      <span class="green"><b>18</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>19</b> relevant lines.
+      <span class="green"><b>14</b> lines covered</span> and
+      <span class="red"><b>5</b> lines missed.</span>
     </div>
 
     
@@ -206,7 +206,7 @@
 
             
 
-            <code class="ruby">  attr_reader :key</code>
+            <code class="ruby">  attr_reader :key, :key_digit_count, :shift_key_letters</code>
           </li>
         </div>
       
@@ -233,8 +233,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="5">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="1" data-linenumber="5">
+            <span class="hits">1</span>
             
 
             
@@ -244,46 +244,46 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="6">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    @a_key = &quot;&quot;</code>
+            <code class="ruby">    @shift_keys = {}</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="7">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="1" data-linenumber="7">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    @b_key = &quot;&quot;</code>
+            <code class="ruby">    @key_digit_count = (0..4).to_a</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="8">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="1" data-linenumber="8">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    @c_key = &quot;&quot;</code>
+            <code class="ruby">    @shift_key_letters = (&#39;a&#39;..&#39;d&#39;).to_a</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="9">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="9">
+            
             
 
             
 
-            <code class="ruby">    @d_key = &quot;&quot;</code>
+            <code class="ruby">    #</code>
           </li>
         </div>
       
@@ -294,7 +294,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    # @a_key = &quot;&quot;</code>
           </li>
         </div>
       
@@ -305,29 +305,29 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    # @b_key = &quot;&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="12">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="12">
+            
             
 
             
 
-            <code class="ruby">  def split_key</code>
+            <code class="ruby">    # @c_key = &quot;&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="13">
-            <span class="hits">5</span>
+          <li class="never" data-hits="" data-linenumber="13">
+            
             
 
             
 
-            <code class="ruby">    @key.split(&#39;&#39;)</code>
+            <code class="ruby">    # @d_key = &quot;&quot;</code>
           </li>
         </div>
       
@@ -360,18 +360,18 @@
 
             
 
-            <code class="ruby">  def a_key</code>
+            <code class="ruby">  def split_key</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="17">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="17">
+            
             
 
             
 
-            <code class="ruby">    @a_key = split_key[0..1].join</code>
+            <code class="ruby">    @key.split(&#39;&#39;)</code>
           </li>
         </div>
       
@@ -404,7 +404,7 @@
 
             
 
-            <code class="ruby">  def b_key</code>
+            <code class="ruby">  def shift_keys</code>
           </li>
         </div>
       
@@ -415,7 +415,7 @@
 
             
 
-            <code class="ruby">    @b_key = split_key[1..2].join</code>
+            <code class="ruby">    require &quot;pry&quot;; binding.pry</code>
           </li>
         </div>
       
@@ -442,13 +442,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="24">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="24">
+            
             
 
             
 
-            <code class="ruby">  def c_key</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -459,18 +459,18 @@
 
             
 
-            <code class="ruby">    @c_key = split_key[2..3].join</code>
+            <code class="ruby">  def a_key</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="26">
+          <li class="missed" data-hits="0" data-linenumber="26">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    @a_key = split_key[0..1].join</code>
           </li>
         </div>
       
@@ -481,18 +481,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="28">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="28">
+            
             
 
             
 
-            <code class="ruby">  def d_key</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -503,18 +503,18 @@
 
             
 
-            <code class="ruby">    @d_key = split_key[3..4].join</code>
+            <code class="ruby">  def b_key</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="30">
+          <li class="missed" data-hits="0" data-linenumber="30">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    @b_key = split_key[1..2].join</code>
           </li>
         </div>
       
@@ -525,12 +525,111 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="32">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def c_key</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="34">
+            
+            
+
+            
+
+            <code class="ruby">    @c_key = split_key[2..3].join</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="35">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="36">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="37">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def d_key</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="38">
+            
+            
+
+            
+
+            <code class="ruby">    @d_key = split_key[3..4].join</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="39">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="40">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 

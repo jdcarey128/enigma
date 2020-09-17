@@ -14,13 +14,22 @@ class KeyGeneratorTest < Minitest::Test
     assert_equal expected, key_1.split_key
   end
 
-  def test_it_can_assign_digits_to_shit_keys
+  def test_it_can_assign_digits_to_shift_keys
     key_1 = KeyGenerator.new("02794")
-    assert_equal "02", key_1.a_key
-    assert_equal "27", key_1.b_key
-    assert_equal "79", key_1.c_key
-    assert_equal "94", key_1.d_key
+    assert_equal "02", key_1.shift_keys['a']
+    assert_equal "27", key_1.shift_keys['b']
+    assert_equal "79", key_1.shift_keys['c']
+    assert_equal "94", key_1.shift_keys['d']
   end
+
+
+  # def test_it_can_assign_digits_to_shift_keys
+  #   key_1 = KeyGenerator.new("02794")
+  #   assert_equal "02", key_1.a_key
+  #   assert_equal "27", key_1.b_key
+  #   assert_equal "79", key_1.c_key
+  #   assert_equal "94", key_1.d_key
+  # end
 
 
 

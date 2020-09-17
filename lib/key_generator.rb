@@ -1,18 +1,25 @@
 class KeyGenerator
-  attr_reader :key
+  attr_reader :key, :key_digit_count, :shift_key_letters
 
   def initialize(key)
     @key = key
-    @a_key = ""
-    @b_key = ""
-    @c_key = ""
-    @d_key = ""
+    @shift_keys = {}
+    @key_digit_count = (0..4).to_a
+    @shift_key_letters = ('a'..'d').to_a
+    #
+    # @a_key = ""
+    # @b_key = ""
+    # @c_key = ""
+    # @d_key = ""
   end
 
   def split_key
     @key.split('')
   end
 
+  def shift_keys
+    require "pry"; binding.pry
+  end
 
 
   def a_key
