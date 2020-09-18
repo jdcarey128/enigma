@@ -1,0 +1,54 @@
+{
+  "Unit Tests": {
+    "coverage": {
+      "/Users/joshua/turing/1mod/projects/enigma/lib/key_generator.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          24,
+          24,
+          24,
+          24,
+          null,
+          null,
+          1,
+          17,
+          null,
+          null,
+          1,
+          4,
+          4,
+          16,
+          16,
+          null,
+          4,
+          null,
+          null,
+          1,
+          21,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/joshua/turing/1mod/projects/enigma/lib/offset_generator.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/joshua/turing/1mod/projects/enigma/lib/shift.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/joshua/turing/1mod/projects/enigma/lib/enigma.rb": {
+        "lines": [
+
+        ]
+      }
+    },
+    "timestamp": 1600387205
+  }
+}
