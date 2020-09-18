@@ -11,7 +11,7 @@ class KeyGeneratorTest < Minitest::Test
   def test_it_can_split_key_into_array
     key_1 = KeyGenerator.new("02794")
     expected = ["0", "2", "7", "9", "4"]
-    assert_equal expected, key_1.split_key
+    assert_equal expected, key_1.splitter(key_1.key)
   end
 
   def test_it_can_assign_digits_to_shift_keys

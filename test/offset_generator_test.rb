@@ -13,4 +13,6 @@ class OffsetGeneratorTest < Minitest::Test
     assert_equal "292137147680400", offset_1.square_date
   end
 
+  def test_it_can_
+
 end
