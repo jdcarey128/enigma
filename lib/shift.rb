@@ -1,10 +1,14 @@
+require './lib/key_generator'
+require './lib/offset_generator'
+
 class Shift
   attr_reader :message, :key, :date
 
-  def initialize(message, key, date)
+  def initialize(message, key = KeyGenerator.new, date = OffsetGenerator.new)
     @message = message
     @key = key
     @date = date
+    @shift_values = shift_values
   end
 
   def shift_keys
