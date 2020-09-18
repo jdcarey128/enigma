@@ -23,7 +23,7 @@ class KeyGeneratorTest < Minitest::Test
   end
 
   def test_it_can_generate_a_random_key_without_argument
-    #How to use stubs here with key_generator?
+    #How to use stubs here with :key_generator?
     key_2 = KeyGenerator.new
     key_2.stubs(:key).returns("50283")
     assert_equal "50283", key_2.key
@@ -32,7 +32,7 @@ class KeyGeneratorTest < Minitest::Test
   def test_it_can_generate_a_5_digit_random_number
     20.times do
       assert_equal 5, KeyGenerator.new.key.size
-    end 
+    end
   end
 
 end

@@ -7,27 +7,27 @@
           1,
           null,
           1,
-          24,
-          24,
-          24,
-          24,
+          0,
+          0,
+          0,
+          0,
           null,
           null,
           1,
-          17,
+          0,
           null,
           null,
           1,
-          4,
-          4,
-          16,
-          16,
+          0,
+          0,
+          0,
+          0,
           null,
-          4,
+          0,
           null,
           null,
           1,
-          21,
+          0,
           null,
           null,
           null
@@ -35,7 +35,14 @@
       },
       "/Users/joshua/turing/1mod/projects/enigma/lib/offset_generator.rb": {
         "lines": [
-
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
         ]
       },
       "/Users/joshua/turing/1mod/projects/enigma/lib/shift.rb": {
@@ -49,6 +56,6 @@
         ]
       }
     },
-    "timestamp": 1600387205
+    "timestamp": 1600393561
   }
 }
