@@ -24,4 +24,10 @@ class OffsetGeneratorTest < Minitest::Test
     assert_equal expected, offset_1.shift_offsets
   end
 
+  def test_it_can_return_default_date_of_today
+    Date.stubs(:today).returns(Date.new(2020,9,17))
+    offset_1 = OffsetGenerator.new
+    assert_equal "09/17/2020", offset_1.date
+  end
+
 end
