@@ -10,10 +10,25 @@ class ShiftTest < Minitest::Test
     assert_equal "170920", shift.date
   end
 
-  def test_it_can_combine_keys_and_offsets_for_shift_value
+  def test_it_can_return_shift_keys
     shift = Shift.new("hello world", "02794", "170920")
     expected = {
-      "a" => "2",
+      "a" => "02",
+      "b" => "27",
+      "c" => "79",
+      "d" => "94"
+    }
+    assert_equal expected, shift.shift_keys
+  end
+
+  
+
+
+  def test_it_can_combine_keys_and_offsets_for_shift_values
+    skip
+    shift = Shift.new("hello world", "02794", "170920")
+    expected = {
+      "a" => "02",
       "b" => "31",
       "c" => "79",
       "d" => "94"
@@ -21,7 +36,7 @@ class ShiftTest < Minitest::Test
     assert_equal expected, shift.shift_values
     shift_2 = Shift.new("hello world", "02794", "160920")
     expected = {
-      "a" => "8",
+      "a" => "08",
       "b" => "31",
       "c" => "79",
       "d" => "94"

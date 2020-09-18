@@ -7,6 +7,10 @@ class Shift
     @date = date
   end
 
+  def shift_keys
+    KeyGenerator.new(@key).shift_keys
+  end
+
   def shift_values
 
   end
