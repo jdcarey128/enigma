@@ -9,14 +9,14 @@ class OffsetGeneratorTest < Minitest::Test
   end
 
   def test_it_can_square_date
-    offset_1 = OffsetGenerator.new("17092020")
-    assert_equal "292137147680400", offset_1.square_date
+    offset_1 = OffsetGenerator.new("170920")
+    assert_equal "29213646400", offset_1.square_date
   end
 
   def test_it_can_assign_square_date_digits_to_offsets
-    offset_1 = OffsetGenerator.new("17092020")
+    offset_1 = OffsetGenerator.new("170920")
     expected = {
-      "a" => "0",
+      "a" => "6",
       "b" => "4",
       "c" => "0",
       "d" => "0"

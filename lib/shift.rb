@@ -11,6 +11,11 @@ class Shift
     KeyGenerator.new(@key).shift_keys
   end
 
+  def shift_offsets
+    # require "pry"; binding.pry
+    OffsetGenerator.new(@date).shift_offsets
+  end
+
   def shift_values
 
   end
