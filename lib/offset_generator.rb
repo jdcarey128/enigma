@@ -25,10 +25,7 @@ class OffsetGenerator
   end
 
   def get_date
-    Date.today.strftime("%d%m%y") 
+    Date.today.strftime("%d%m%y")
   end
-
-
-
 
 end

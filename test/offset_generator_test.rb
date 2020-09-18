@@ -30,4 +30,10 @@ class OffsetGeneratorTest < Minitest::Test
     assert_equal "160920", offset_1.date
   end
 
+  def test_it_can_square_date_of_today
+    Date.stubs(:today).returns(Date.new(2020,9,16))
+    offset_1 = OffsetGenerator.new
+    assert_equal "25895246400", offset_1.square_date
+  end
+
 end
