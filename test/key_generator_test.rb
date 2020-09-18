@@ -29,4 +29,10 @@ class KeyGeneratorTest < Minitest::Test
     assert_equal "50283", key_2.key
   end
 
+  def test_it_can_generate_a_5_digit_random_number
+    20.times do
+      assert_equal 5, KeyGenerator.new.key.size
+    end 
+  end
+
 end
