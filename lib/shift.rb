@@ -12,12 +12,13 @@ class Shift
   end
 
   def shift_offsets
-    # require "pry"; binding.pry
     OffsetGenerator.new(@date).shift_offsets
   end
 
   def shift_values
-
+    shift_keys.merge(shift_offsets) do |shift, key, offset|
+      '%02d' % (key.to_i + offset.to_i).to_s
+    end
   end
 
 end
