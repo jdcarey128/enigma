@@ -5,7 +5,7 @@ class OffsetGenerator
 
   attr_reader :date
 
-  def initialize(date)
+  def initialize(date = get_date)
     @date = date
     @shift_offsets = {}
     @shift_offset_letters = ('a'..'d').to_a
@@ -24,6 +24,9 @@ class OffsetGenerator
     @shift_offsets
   end
 
+  def get_date
+    Date.today.strftime("%d%m%y") 
+  end
 
 
 
