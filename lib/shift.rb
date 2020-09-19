@@ -29,4 +29,8 @@ class Shift
     end
   end
 
+  def encrypt_message
+
+  end
+
 end

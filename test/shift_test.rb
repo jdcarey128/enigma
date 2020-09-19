@@ -52,7 +52,18 @@ class ShiftTest < Minitest::Test
     assert_equal expected, shift.stripped_message
   end
 
-
+  def test_it_can_shift_stripped_message_characters_to_new_message
+    shift = Shift.new("hello world", "01010", "170920")
+    expected = {
+      "a" => "07",
+      "b" => "14",
+      "c" => "01",
+      "d" => "10"
+    }
+    assert_equal expected, shift.shift_values
+    expected = ['r', 's', 'm', 'v', 'v', 'n', 'x', 'z', 'y', 'z', 'e']
+    assert_equal expected, shift.encrypt_message
+  end
 
 
 end
