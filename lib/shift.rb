@@ -6,7 +6,7 @@ class Shift
   attr_reader :message, :key, :date, :alphabet, :split_message
   include Splitaccumulatable
 
-  def initialize(message, key = KeyGenerator.new, date = OffsetGenerator.new)
+  def initialize(message, key = KeyGenerator.new.key, date = OffsetGenerator.new.date)
     @message = message
     @split_message = splitter(message)
     @key = key
