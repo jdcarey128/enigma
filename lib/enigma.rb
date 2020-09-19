@@ -10,7 +10,7 @@ class Enigma
               :key,
               :date
 
-  def initialize(message_file = nil, new_message_destination = nil,
+  def initialize(message_file = nil, new_message_destination = './lib/general_sample.txt',
                 key = nil, date = nil)
     @message_file = message_file
     @new_message_destination = new_message_destination

@@ -16,7 +16,8 @@ class Messenger
 
   def transform
     return nil if @message == nil
-    splitter(message).map do |character|
+    # require "pry"; binding.pry
+    splitter(@message).map do |character|
       character.downcase
     end.join
   end
