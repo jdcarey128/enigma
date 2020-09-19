@@ -3,30 +3,28 @@ require './lib/offset_generator'
 require './lib/shift'
 
 class Enigma
-  attr_reader :encrypted_message,
-              :decrypted_message,
+  attr_reader :encryption,
+              :decryption,
               :key,
               :date
 
   def initialize
-    # (encrypted_message = nil, decrypted_message = nil, key = nil, date = nil)
-    @encrypted_message = encrypted_message
-    @decrypted_message = decrypted_message
+    # (encryption = nil, decryption = nil, key = nil, date = nil)
+    @encryption = encryption
+    @decryption = decryption
     @key = key
     @date = date
   end
 
   def encrypt(message, key = @key, date = @date)
-    if date == nil
-      shift = Shift.new(message, key)
-    else
-      shift = Shift.new(message, key, date)
-    end
+    shift = Shift.new(message, key) if date == nil
+    shift = Shift.new(message, key, date) if date != nil
     { encryption: shift.encrypt_message.join, key: shift.key, date: shift.date }
   end
 
-  def decrypt(message, key, date)
-    shift = Shift.new(message, key, date)
+  def decrypt(message, key = @key, date = @date)
+    shift = Shift.new(message, key) if date == nil
+    shift = Shift.new(message, key, date) if date != nil
     { decryption: shift.decrypt_message.join, key: shift.key, date: shift.date }
   end
 

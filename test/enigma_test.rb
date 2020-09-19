@@ -5,8 +5,8 @@ class EnigmaTest < Minitest::Test
   def test_it_exists_and_has_attributes
     enigma = Enigma.new
     assert_instance_of Enigma, enigma
-    assert_nil enigma.encrypted_message
-    assert_nil enigma.decrypted_message
+    assert_nil enigma.encryption
+    assert_nil enigma.decryption
     assert_nil enigma.key
     assert_nil enigma.date
   end
@@ -31,7 +31,7 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.decrypt("keder ohulw", "02715", "040895")
   end
 
-  def test_it_can_encrypt_message_with_only_key_aaa
+  def test_it_can_encrypt_message_with_only_key
     enigma = Enigma.new
     Date.stubs(:today).returns(Date.new(1995,8,4))
     expected =  {
@@ -40,6 +40,18 @@ class EnigmaTest < Minitest::Test
         date: "040895"
       }
     assert_equal expected, enigma.encrypt("hello world", "02715")
+  end
+
+  def test_it_can_decrypt_message_with_only_key
+    enigma = Enigma.new
+    Date.stubs(:today).returns(Date.new(1995,8,4))
+    encrypted = enigma.encrypt("hello world", "02715")
+    expected =  {
+        decryption: "hello world",
+        key: "02715",
+        date: "040895"
+      }
+    assert_equal expected, enigma.decrypt(encrypted[:encryption], "02715")
   end
 
 end
