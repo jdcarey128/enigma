@@ -29,6 +29,20 @@ class Shift
     end
   end
 
+
+
+  def encrypt_letter(letter, shift_value)
+    until shift_value <= 27
+      shift_value -= 27
+    end
+    if (@alphabet.index(letter) + shift_value) > 27
+      letter = @alphabet.fetch(@alphabet.index(letter) + shift_value - 27)
+    else
+      letter = @alphabet.fetch(@alphabet.index(letter) + shift_value)
+    end
+    letter
+  end
+
   def encrypt_message
     count = 0
     message = @stripped_message
