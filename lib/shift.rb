@@ -38,7 +38,7 @@ class Shift
 
   def encrypt_letter(letter, shift_value)
     shift_value = shift_reducer(shift_value)
-    if (@alphabet.index(letter) + shift_value) > 27
+    if (@alphabet.index(letter) + shift_value) >= 27
       letter = @alphabet.fetch(@alphabet.index(letter) + shift_value - 27)
     else
       letter = @alphabet.fetch(@alphabet.index(letter) + shift_value)

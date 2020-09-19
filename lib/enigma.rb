@@ -12,5 +12,9 @@ class Enigma
     @date = date
   end
 
+  def encrypt(message, key, date)
+    shift = Shift.new(message, key, date)
+    { encryption: shift.encrypt_message.join, key: shift.key, date: shift.date }
+  end
 
 end
