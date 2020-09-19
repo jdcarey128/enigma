@@ -46,27 +46,6 @@ class Shift
     letter
   end
 
-  def prune_message(message, count, message_length)
-    (count - message_length).times do
-      message.pop
-    end
-    message
-  end
-
-  def encrypt_message
-    count = 0
-    message = @split_message
-    new_message = []
-    until count >= @split_message.count
-      @shift_values.map do |shift, value|
-        new_message << encrypt_letter(@split_message[0], value.to_i)
-        count += 1
-        @split_message.rotate!
-      end
-    end
-    prune_message(new_message, new_message.count, @split_message.count)
-  end
-
   def decrypt_letter(letter, shift_value)
     shift_value = shift_reducer(shift_value)
     if (@alphabet.index(letter) - shift_value) < 0
@@ -77,13 +56,28 @@ class Shift
     letter
   end
 
+  def prune_message(message, count, message_length)
+    (count - message_length).times do
+      message.pop
+    end
+    message
+  end
+
+  def encrypt_message
+    shift_message(:encrypt_letter)
+  end
+
   def decrypt_message
+    shift_message(:decrypt_letter)
+  end
+
+  def shift_message(method_arg)
     count = 0
     message = @split_message
     new_message = []
     until count >= @split_message.count
       @shift_values.map do |shift, value|
-        new_message << decrypt_letter(@split_message[0], value.to_i)
+        new_message << method(method_arg).call(@split_message[0], value.to_i)
         count += 1
         @split_message.rotate!
       end
