@@ -1,10 +1,10 @@
 require './lib/key_generator'
 require './lib/offset_generator'
-require './lib/splitaccumulatable'
+require './lib/splitable'
 
 class Shift
   attr_reader :message, :key, :date, :alphabet, :split_message
-  include Splitaccumulatable
+  include Splitable
 
   def initialize(message, key = KeyGenerator.new.key, date = OffsetGenerator.new.date)
     @message = message

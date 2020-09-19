@@ -1,4 +1,4 @@
-module Splitaccumulatable
+module Splitable
 
   def splitter(object)
     object.split('')

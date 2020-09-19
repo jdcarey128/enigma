@@ -1,7 +1,7 @@
-require './lib/splitaccumulatable'
+require './lib/splitable'
 
 class OffsetGenerator
-  include Splitaccumulatable
+  include Splitable
 
   attr_reader :date
 

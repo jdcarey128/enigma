@@ -1,7 +1,7 @@
-require './lib/splitaccumulatable'
+require './lib/splitable'
 
 class KeyGenerator
-  include Splitaccumulatable
+  include Splitable
 
   attr_reader :key, :key_digit_count, :shift_key_letters
 
