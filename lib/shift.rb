@@ -6,7 +6,7 @@ class Shift
   attr_reader :message, :key, :date, :alphabet, :split_message
   include Splitaccumulatable
 
-  def initialize(message, key = KeyGenerator.new, date = OffsetGenerator.new)
+  def initialize(message, key = KeyGenerator.new.key, date = OffsetGenerator.new.date)
     @message = message
     @split_message = splitter(message)
     @key = key
@@ -38,7 +38,7 @@ class Shift
 
   def encrypt_letter(letter, shift_value)
     shift_value = shift_reducer(shift_value)
-    if (@alphabet.index(letter) + shift_value) > 27
+    if (@alphabet.index(letter) + shift_value) >= 27
       letter = @alphabet.fetch(@alphabet.index(letter) + shift_value - 27)
     else
       letter = @alphabet.fetch(@alphabet.index(letter) + shift_value)
@@ -79,7 +79,7 @@ class Shift
       @shift_values.map do |shift, value|
         new_message << method(method_arg).call(@split_message[0], value.to_i)
         count += 1
-        @split_message.rotate!
+        message.rotate!
       end
     end
     prune_message(new_message, new_message.count, @split_message.count)
