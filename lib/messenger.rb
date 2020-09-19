@@ -10,13 +10,8 @@ class Messenger
     @file_destination = file_destination
   end
 
-  # def message
-  #   File.open(@message).read.chomp
-  # end
-
   def transform
     return nil if @message == nil
-    # require "pry"; binding.pry
     splitter(@message).map do |character|
       character.downcase
     end.join
