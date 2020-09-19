@@ -49,8 +49,8 @@ class Shift
 
   def decrypt_letter(letter, shift_value)
     shift_value = shift_reducer(shift_value)
-    require "pry"; binding.pry
-    if (@alphabet.index(letter) - shift_value) < 0
+    if @alphabet.index(letter) == nil
+    elsif (@alphabet.index(letter) - shift_value) < 0
       letter = @alphabet.fetch(@alphabet.index(letter) - shift_value + 27)
     else
       letter = @alphabet.fetch(@alphabet.index(letter) - shift_value)
