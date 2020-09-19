@@ -1,4 +1,5 @@
 require './lib/splitable'
+require 'date'
 
 class OffsetGenerator
   include Splitable
