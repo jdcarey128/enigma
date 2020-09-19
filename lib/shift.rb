@@ -73,11 +73,11 @@ class Shift
 
   def shift_message(method_arg)
     count = 0
-    message = @split_message
+    message = @split_message.clone
     new_message = []
     until count >= @split_message.count
       @shift_values.map do |shift, value|
-        new_message << method(method_arg).call(@split_message[0], value.to_i)
+        new_message << method(method_arg).call(message[0], value.to_i)
         count += 1
         message.rotate!
       end

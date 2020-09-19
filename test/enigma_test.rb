@@ -41,7 +41,7 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.encrypt("hello world", "02715")
   end
 
-  def test_it_can_decrypt_message_with_only_key
+  def test_it_can_decrypt_message_with_only_key_bbb
     enigma = Enigma.new
     Date.stubs(:today).returns(Date.new(1995,8,4))
     encrypted = enigma.encrypt("hello world", "02715")
