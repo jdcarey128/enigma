@@ -28,14 +28,14 @@ class Enigma
     shift = Shift.new(message) if date == nil && key == nil
     shift = Shift.new(message, key) if date == nil && key != nil
     shift = Shift.new(message, key, date) if date != nil && key != nil
-    # Messenger.new(shift.encrypt_message.join, @new_message_destination).write_message
-    #running message second time messes up
+    Messenger.new(shift.encrypt_message.join, @new_message_destination).write_message
     result = { encryption: shift.encrypt_message.join, key: shift.key, date: shift.date }
   end
 
   def decrypt(message = @message, key = @key, date = @date)
     shift = Shift.new(message, key) if date == nil
     shift = Shift.new(message, key, date) if date != nil
+    Messenger.new(shift.decrypt_message.join, @new_message_destination).write_message
     { decryption: shift.decrypt_message.join, key: shift.key, date: shift.date }
   end
 
