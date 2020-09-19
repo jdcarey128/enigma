@@ -58,9 +58,32 @@ class Shift
     message = @split_message
     new_message = []
     until count >= @split_message.count
-      # require "pry"; binding.pry
       @shift_values.map do |shift, value|
         new_message << encrypt_letter(@split_message[0], value.to_i)
+        count += 1
+        @split_message.rotate!
+      end
+    end
+    prune_message(new_message, new_message.count, @split_message.count)
+  end
+
+  def decrypt_letter(letter, shift_value)
+    shift_value = shift_reducer(shift_value)
+    if (@alphabet.index(letter) - shift_value) < 0
+      letter = @alphabet.fetch(@alphabet.index(letter) - shift_value + 27)
+    else
+      letter = @alphabet.fetch(@alphabet.index(letter) - shift_value)
+    end
+    letter
+  end
+
+  def decrypt_message
+    count = 0
+    message = @split_message
+    new_message = []
+    until count >= @split_message.count
+      @shift_values.map do |shift, value|
+        new_message << decrypt_letter(@split_message[0], value.to_i)
         count += 1
         @split_message.rotate!
       end

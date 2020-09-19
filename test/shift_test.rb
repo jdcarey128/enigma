@@ -89,13 +89,12 @@ class ShiftTest < Minitest::Test
   def test_it_can_decrypt_letter_given_shift_value
     shift = Shift.new("osmvvnxyyze", "01010", "170920")
     assert_equal 'm', shift.decrypt_letter('w', 10)
-    assert_equal 'v', shift.decrypt_letter('a', 30)
+    assert_equal 'y', shift.decrypt_letter('a', 30)
     assert_equal 'd', shift.decrypt_letter('d', 54)
-    assert_equal 'z', shift.decrypt_letter('s', 80)
+    assert_equal 't', shift.decrypt_letter('s', 80)
   end
 
   def test_it_can_decrypt_message_into_message_array
-    skip
     shift = Shift.new("osmvvnxyyze", "01010", "170920")
     expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
     assert_equal expected, shift.decrypt_message
