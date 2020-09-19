@@ -30,7 +30,13 @@ class Shift
   end
 
   def encrypt_message
-
+    count = 0
+    message = @stripped_message
+    until count == @stripped_message.count
+      @shift_values.each do |shift, value|
+        require "pry"; binding.pry
+      end
+    end
   end
 
 end
