@@ -3,20 +3,20 @@ require './test/test_helper'
 class OffsetGeneratorTest < Minitest::Test
 
   def test_it_exists_and_has_attributes
-    offset_1 = OffsetGenerator.new("17092020")
+    offset_1 = OffsetGenerator.new("170920")
     assert_instance_of OffsetGenerator, offset_1
-    assert_equal "17092020", offset_1.date
+    assert_equal "170920", offset_1.date
   end
 
   def test_it_can_square_date
-    offset_1 = OffsetGenerator.new("17092020")
-    assert_equal "292137147680400", offset_1.square_date
+    offset_1 = OffsetGenerator.new("170920")
+    assert_equal "29213646400", offset_1.square_date
   end
 
   def test_it_can_assign_square_date_digits_to_offsets
-    offset_1 = OffsetGenerator.new("17092020")
+    offset_1 = OffsetGenerator.new("170920")
     expected = {
-      "a" => "0",
+      "a" => "6",
       "b" => "4",
       "c" => "0",
       "d" => "0"
