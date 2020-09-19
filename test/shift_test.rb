@@ -46,10 +46,17 @@ class ShiftTest < Minitest::Test
     assert_equal expected, shift.shift_values
   end
 
-  def test_it_can_return_a_stripped_message
+  def test_it_can_return_a_split_message
     shift = Shift.new("hello world", "02794", "170920")
     expected = ['h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd']
-    assert_equal expected, shift.stripped_message
+    assert_equal expected, shift.split_message
+  end
+
+  def test_it_can_reduce_shift_value_to_below_27
+    shift = Shift.new("hello world", "01010", "170920")
+    assert_equal 3, shift.shift_reducer(30)
+    assert_equal 0, shift.shift_reducer(54)
+    assert_equal 26, shift.shift_reducer(80)
   end
 
   def test_it_can_return_new_letter_given_shift_value
@@ -60,9 +67,13 @@ class ShiftTest < Minitest::Test
     assert_equal 'r', shift.encrypt_letter('s', 80)
   end
 
+  def test_it_can_prune_message
+    shift = Shift.new("hello world", "01010", "170920")
+    message = ['h', 'e', 'l', 'l', 'o']
+    assert_equal ['h', 'e'], shift.prune_message(message, 5, 2)
+  end
 
   def test_it_can_shift_stripped_message_characters_to_new_message
-    skip
     shift = Shift.new("hello world", "01010", "170920")
     expected = {
       "a" => "07",
@@ -71,7 +82,7 @@ class ShiftTest < Minitest::Test
       "d" => "10"
     }
     assert_equal expected, shift.shift_values
-    expected = ['r', 's', 'm', 'v', 'v', 'n', 'x', 'z', 'y', 'z', 'e']
+    expected = ['o', 's', 'm', 'v', 'v', 'n', 'x', 'y', 'y', 'z', 'e']
     assert_equal expected, shift.encrypt_message
   end
 
