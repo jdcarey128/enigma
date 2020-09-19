@@ -8,6 +8,8 @@ class ShiftTest < Minitest::Test
     assert_equal "hello world", shift.message
     assert_equal "02794", shift.key
     assert_equal "170920", shift.date
+    expected = (('a'..'z').to_a << ' ')
+    assert_equal expected, shift.alphabet
   end
 
   def test_it_can_return_shift_keys
@@ -43,6 +45,8 @@ class ShiftTest < Minitest::Test
     }
     assert_equal expected, shift.shift_values
   end
+
+
 
 
 end
