@@ -79,7 +79,7 @@ class Shift
       @shift_values.map do |shift, value|
         new_message << method(method_arg).call(@split_message[0], value.to_i)
         count += 1
-        @split_message.rotate!
+        message.rotate!
       end
     end
     prune_message(new_message, new_message.count, @split_message.count)
