@@ -38,7 +38,9 @@ class Shift
 
   def encrypt_letter(letter, shift_value)
     shift_value = shift_reducer(shift_value)
-    if (@alphabet.index(letter) + shift_value) >= 27
+    if @alphabet.index(letter) == nil
+      letter
+    elsif (@alphabet.index(letter) + shift_value) >= 27
       letter = @alphabet.fetch(@alphabet.index(letter) + shift_value - 27)
     else
       letter = @alphabet.fetch(@alphabet.index(letter) + shift_value)
@@ -48,7 +50,9 @@ class Shift
 
   def decrypt_letter(letter, shift_value)
     shift_value = shift_reducer(shift_value)
-    if (@alphabet.index(letter) - shift_value) < 0
+    if @alphabet.index(letter) == nil
+      letter 
+    elsif (@alphabet.index(letter) - shift_value) < 0
       letter = @alphabet.fetch(@alphabet.index(letter) - shift_value + 27)
     else
       letter = @alphabet.fetch(@alphabet.index(letter) - shift_value)
@@ -73,11 +77,11 @@ class Shift
 
   def shift_message(method_arg)
     count = 0
-    message = @split_message
+    message = @split_message.clone
     new_message = []
     until count >= @split_message.count
       @shift_values.map do |shift, value|
-        new_message << method(method_arg).call(@split_message[0], value.to_i)
+        new_message << method(method_arg).call(message[0], value.to_i)
         count += 1
         message.rotate!
       end

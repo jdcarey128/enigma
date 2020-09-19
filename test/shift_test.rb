@@ -100,5 +100,23 @@ class ShiftTest < Minitest::Test
     assert_equal expected, shift.decrypt_message
   end
 
+  def test_it_can_encrypt_message_with_character_into_message_array
+    shift = Shift.new("hello world!", "01010", "170920")
+    expected = {
+      "a" => "07",
+      "b" => "14",
+      "c" => "01",
+      "d" => "10"
+    }
+    assert_equal expected, shift.shift_values
+    expected = ['o', 's', 'm', 'v', 'v', 'n', 'x', 'y', 'y', 'z', 'e', '!']
+    assert_equal expected, shift.encrypt_message
+  end
+
+  def test_it_can_decrypt_message_into_message_array
+    shift = Shift.new("osmvvnxyyze!", "01010", "170920")
+    expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d", "!"]
+    assert_equal expected, shift.decrypt_message
+  end
 
 end
