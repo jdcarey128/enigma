@@ -3,13 +3,16 @@ require './lib/splitable'
 class Messenger
   include Splitable
 
-  def initialize(message)
+  attr_reader :message, :file_destination
+
+  def initialize(message, file_destination = nil)
     @message = message
+    @file_destination = file_destination
   end
 
-  def message
-    File.open(@message).read.chomp
-  end
+  # def message
+  #   File.open(@message).read.chomp
+  # end
 
   def transform
     return nil if @message == nil
@@ -18,17 +21,10 @@ class Messenger
     end.join
   end
 
-  def encrypt_message(message, file_destination)
-    encryption = File.open(file_destination, 'w')
+  def write_message
+    encryption = File.open(@file_destination, 'w')
     encryption.write(message)
     encryption.close
   end
-
-  def decrypt_message(message, file_destination)
-    decryption = File.open(file_destination, 'w')
-    decryption.write(message)
-    decryption.close
-  end
-
 
 end

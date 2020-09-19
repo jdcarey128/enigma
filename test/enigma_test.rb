@@ -71,4 +71,15 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.transform
   end
 
+  def test_it_can_write_encryption_to_file_aaa
+    file_location = './lib/enigma_message_sample.txt'
+    file_destination = './lib/encrypted_sample.txt'
+    File.truncate(file_destination, 0)
+    assert_equal '', File.open(file_destination).read
+    enigma = Enigma.new(file_location, file_destination, "02715", "040895")
+    expected =  "keder ohulw"
+    enigma.encrypt
+    assert_equal expected, File.open(file_destination).read
+  end
+
 end
