@@ -4,14 +4,14 @@ class MessengerTest < Minitest::Test
 
   def test_it_exists_and_has_attributes
     messenger = Messenger.new(File.open('./lib/message_sample.txt').read.chomp)
-    expected = "We shall fight on the beaches!"
+    expected = "Hello World!"
     assert_instance_of Messenger, messenger
     assert_equal expected, messenger.message
   end
 
   def test_it_can_downcase_all_capitalized_letters_in_message
     messenger = Messenger.new(File.open('./lib/message_sample.txt').read.chomp)
-    expected = "we shall fight on the beaches!"
+    expected = "hello world!"
     assert_equal expected, messenger.transform
   end
 
@@ -21,7 +21,7 @@ class MessengerTest < Minitest::Test
     messenger = Messenger.new(File.open('./lib/message_sample.txt').read.chomp, file_destination)
     assert_equal "", File.open(file_destination).read
     messenger.write_message
-    expected = "We shall fight on the beaches!"
+    expected = "Hello World!"
     actual = File.open(file_destination).read
     assert_equal expected, actual
   end
@@ -32,7 +32,7 @@ class MessengerTest < Minitest::Test
     messenger = Messenger.new(File.open('./lib/message_sample.txt').read.chomp, file_destination)
     assert_equal "", File.open(file_destination).read
     messenger.write_message
-    expected = "We shall fight on the beaches!"
+    expected = "Hello World!"
     actual = File.open(file_destination).read
     assert_equal expected, actual
   end

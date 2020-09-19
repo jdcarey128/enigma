@@ -67,7 +67,7 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_transform_a_message
     enigma = Enigma.new('./lib/message_sample.txt')
-    expected = "we shall fight on the beaches!"
+    expected = "hello world!"
     assert_equal expected, enigma.transform
   end
 
