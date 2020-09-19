@@ -5,8 +5,7 @@ class EnigmaTest < Minitest::Test
   def test_it_exists_and_has_attributes
     enigma = Enigma.new
     assert_instance_of Enigma, enigma
-    assert_nil enigma.encryption
-    assert_nil enigma.decryption
+    assert_nil enigma.message
     assert_nil enigma.key
     assert_nil enigma.date
   end
@@ -64,6 +63,12 @@ class EnigmaTest < Minitest::Test
         date: "040895"
       }
     assert_equal expected, enigma.encrypt("hello world")
+  end
+
+  def test_it_can_transform_a_message
+    enigma = Enigma.new('./lib/message_sample.txt')
+    expected = "we shall fight on the beaches!"
+    assert_equal expected, enigma.transform
   end
 
 end

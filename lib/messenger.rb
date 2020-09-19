@@ -8,10 +8,11 @@ class Messenger
   end
 
   def message
-    @message.read.chomp
+    File.open(@message).read.chomp
   end
 
   def transform
+    return nil if @message == nil
     splitter(message).map do |character|
       character.downcase
     end.join
