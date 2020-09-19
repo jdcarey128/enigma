@@ -46,6 +46,12 @@ class ShiftTest < Minitest::Test
     assert_equal expected, shift.shift_values
   end
 
+  def test_it_can_return_a_stripped_message
+    shift = Shift.new("hello world", "02794", "170920")
+    expected = ['h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd']
+    assert_equal expected, shift.stripped_message
+  end
+
 
 
 
