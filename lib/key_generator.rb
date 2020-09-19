@@ -5,11 +5,15 @@ class KeyGenerator
 
   attr_reader :key, :key_digit_count, :shift_key_letters
 
-  def initialize(key = key_generator)
+  def initialize(key = KeyGenerator.generate_key)
     @key = key
     @shift_keys = {}
     @key_digit_count = (0..@key.size).to_a
     @shift_key_letters = ('a'..'d').to_a
+  end
+
+  def self.generate_key
+    '%05d' % rand(10 ** 5)
   end
 
   def shift_keys
@@ -19,10 +23,6 @@ class KeyGenerator
       digits = digits.rotate
     end
     @shift_keys
-  end
-
-  def key_generator
-    '%05d' % rand(10 ** 5)
   end
 
 end
