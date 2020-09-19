@@ -1,9 +1,10 @@
 class Messenger
-  attr_reader :decryption, :encryption
 
-  def initialize(decryption, encryption)
-    @decryption = decryption.read.chomp
-    @encryption = encryption.read.chomp 
+  def initialize(message)
+    @message = message
   end
 
+  def message
+    @message.read.chomp
+  end
 end
