@@ -17,8 +17,9 @@ class Enigma
   end
 
   def encrypt(message, key = @key, date = @date)
-    shift = Shift.new(message, key) if date == nil
-    shift = Shift.new(message, key, date) if date != nil
+    shift = Shift.new(message) if date == nil && key == nil
+    shift = Shift.new(message, key) if date == nil && key != nil
+    shift = Shift.new(message, key, date) if date != nil && key != nil
     { encryption: shift.encrypt_message.join, key: shift.key, date: shift.date }
   end
 

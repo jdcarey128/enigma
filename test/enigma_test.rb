@@ -54,4 +54,16 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.decrypt(encrypted[:encryption], "02715")
   end
 
+  def test_it_can_encrypt_message_with_random_key_and_todays_date
+    enigma = Enigma.new
+    Date.stubs(:today).returns(Date.new(1995,8,4))
+    KeyGenerator.stubs(:generate_key).returns("02715")
+    expected =  {
+        encryption: "keder ohulw",
+        key: "02715",
+        date: "040895"
+      }
+    assert_equal expected, enigma.encrypt("hello world")
+  end
+
 end
