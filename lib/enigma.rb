@@ -28,7 +28,7 @@ class Enigma
     shift = Shift.new(message) if date == nil && key == nil
     shift = Shift.new(message, key) if date == nil && key != nil
     shift = Shift.new(message, key, date) if date != nil && key != nil
-    Messenger.new(shift.encrypt_message.join, @new_message_destination).write_message
+    # Messenger.new(shift.encrypt_message.join, @new_message_destination).write_message
     #running message second time messes up
     result = { encryption: shift.encrypt_message.join, key: shift.key, date: shift.date }
   end
