@@ -8,10 +8,17 @@ class CrackCodeTest < Minitest::Test
     assert_equal "vjqtbeaweqihssi", crack.message
   end
 
-  def test_it_can_produce_a_matching_array_with_shifts
+  def test_it_can_produce_a_matching_sequence_with_shifts
     crack = CrackCode.new("vjqtbeaweqihssi")
-    expected = ['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd', 'a', 'b', 'c', 'd', 'a', 'b', 'c']
+    expected = "abcdabcdabcdabc"
     assert_equal expected, crack.match_sequence
+  end
+
+  def test_it_can_assign_characters_to_index
+    crack = CrackCode.new("vjqtbeaweqihssi")
+    expected = {0 => 'v', 1 => 'j', 2 => 'q', 3 => 't', 4 => 'b', 5=>"e", 6=>"a",
+      7=>"w", 8=>"e", 9=>"q", 10=>"i", 11=>"h", 12=>"s", 13=>"s", 14=>"i"}
+    assert_equal expected, crack.assign_index("vjqtbeaweqihssi")
   end
 
 end

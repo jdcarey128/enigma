@@ -1,4 +1,7 @@
+require 'splitable'
+
 class CrackCode
+  include Splitable
   attr_reader :message
 
   def initialize(message)
@@ -11,9 +14,17 @@ class CrackCode
     letters = ('a'..'d').to_a
     @message.size.times do
       shift_sequence << letters.first
-      letters.rotate
+      letters.rotate!
     end
-    shift_sequence
+    shift_sequence.join
+  end
+
+  def assign_index(object)
+    letter_index = {}
+    splitter(object).each_with_index do |letter, index|
+      letter_index[index] = letter
+    end
+    letter_index
   end
 
 
