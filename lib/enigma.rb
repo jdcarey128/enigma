@@ -39,4 +39,7 @@ class Enigma
     { decryption: shift.decrypt_message.join, key: shift.key, date: shift.date }
   end
 
+  def crack(message = @message, date = @date)
+  end
+
 end

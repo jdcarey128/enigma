@@ -1,0 +1,3 @@
+class CrackCode
+
+end 
