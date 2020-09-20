@@ -39,6 +39,7 @@ class CrackCode
   end
 
   def calculate_shift(decrypted_value, encrypted_value)
+    # require "pry"; binding.pry
     if (@alphabet.index(encrypted_value) - @alphabet.index(decrypted_value)) < 0
       (27 - @alphabet.index(decrypted_value)) + @alphabet.index(encrypted_value)
     else
@@ -48,7 +49,7 @@ class CrackCode
 
   def organize_shift_values
     shift_values = {}
-    merge_indices.each_value do |value|
+    merge_indices.each do |key, value|
       shift_values[value[:shift]] = calculate_shift(value[:decrypted], value[:encrypted])
     end
     shift_values
@@ -56,7 +57,7 @@ class CrackCode
 
   def calculate_lowest_shift_keys
     organize_shift_values.merge(@offsets) do |shift, total_shift, offset|
-      '%02d' % (total_shift - offset.to_i).to_s
+      '%02d' % ((total_shift - offset.to_i).abs).to_s
     end
   end
 
@@ -76,7 +77,8 @@ class CrackCode
   end
 
   def produce_key
-    adjust_keys['a'] + adjust_keys['b'][1] + adjust_keys['d']
+    keys = adjust_keys()
+    keys['a'] + keys['b'][1] + keys['d']
   end
 
 end
