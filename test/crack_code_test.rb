@@ -33,4 +33,12 @@ class CrackCodeTest < Minitest::Test
     assert_equal expected, crack.merge_indices
   end
 
+  def test_it_can_calculate_the_shift_between_encrypted_and_decrypted
+    crack = CrackCode.new("vjqtbeaweqihssi")
+    assert_equal 8, crack.calculate_shift(" ", "h")
+    assert_equal 14, crack.calculate_shift("e", "s")
+    assert_equal 5, crack.calculate_shift("n", "s")
+    assert_equal 5, crack.calculate_shift("d", "i")
+  end
+
 end
