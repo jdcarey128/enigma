@@ -20,7 +20,7 @@ class OffsetGenerator
     digits = splitter(square_date)[-4..-1]
     @shift_offset_letters.each do |letter|
       @shift_offsets[letter] = digits[0]
-      digits = digits.rotate
+      digits.rotate!
     end
     @shift_offsets
   end
