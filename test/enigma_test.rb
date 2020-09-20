@@ -94,6 +94,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_crack_an_encryption_without_key_ccc
+    Date.stubs(:today).returns(Date.new(2018,10,29))
     enigma = Enigma.new
     expected = {
         decryption: "hello world end",

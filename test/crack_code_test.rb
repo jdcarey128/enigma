@@ -52,10 +52,10 @@ class CrackCodeTest < Minitest::Test
     assert_equal expected, crack.organize_shift_values
   end
 
-  def test_it_can_calculate_lowest_possible_shift_keys_ccc
+  def test_it_can_calculate_lowest_possible_shift_keys
     Date.stubs(:today).returns(Date.new(2018,10,29))
     crack = CrackCode.new("vjqtbeaweqihssi")
-    expected = {'a' => "08", 'b' => "02", 'c' => "02", 'd' => "04"}
+    expected = {'a' => "08", 'b' => "02", 'c' => "03", 'd' => "04"}
     assert_equal expected, crack.calculate_lowest_shift_keys
   end
 
@@ -66,7 +66,7 @@ class CrackCodeTest < Minitest::Test
     assert_equal expected, crack.adjust_keys
   end
 
-  def test_it_can_merge_shift_keys_into_single_key
+  def test_it_can_merge_shift_keys_into_single_key_ccc
     Date.stubs(:today).returns(Date.new(2018,10,29))
     crack = CrackCode.new("vjqtbeaweqihssi")
     assert_equal "08304", crack.produce_key
