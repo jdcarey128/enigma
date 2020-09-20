@@ -24,4 +24,15 @@ class CrackCodeTest < Minitest::Test
     assert_equal expected, crack.assign_index("abcdabcdabcdabc")
   end
 
+  def test_it_can_merge_character_and_shift_indices
+    crack = CrackCode.new("vjqtbeaweqihssi")
+    expected = {0=>{:letter=>"v", :shift=>"a"}, 1=>{:letter=>"j", :shift=>"b"},
+    2=>{:letter=>"q", :shift=>"c"}, 3=>{:letter=>"t", :shift=>"d"}, 4=>{:letter=>"b", :shift=>"a"},
+    5=>{:letter=>"e", :shift=>"b"}, 6=>{:letter=>"a", :shift=>"c"}, 7=>{:letter=>"w", :shift=>"d"},
+    8=>{:letter=>"e", :shift=>"a"}, 9=>{:letter=>"q", :shift=>"b"}, 10=>{:letter=>"i", :shift=>"c"},
+    11=>{:letter=>"h", :shift=>"d"}, 12=>{:letter=>"s", :shift=>"a"}, 13=>{:letter=>"s", :shift=>"b"},
+    14=>{:letter=>"i", :shift=>"c"}}
+    assert_equal expected, crack.merge_indices 
+  end
+
 end

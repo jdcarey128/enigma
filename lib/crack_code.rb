@@ -27,5 +27,12 @@ class CrackCode
     letter_index
   end
 
+  def merge_indices
+    merged_indices = {}
+    assign_index(@message).merge(assign_index(match_sequence)) do |index, letter, shift|
+      merged_indices[index] = {letter: letter, shift: shift}
+    end
+  end
+
 
 end
