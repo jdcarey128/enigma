@@ -39,6 +39,7 @@ class CrackCodeTest < Minitest::Test
     assert_equal 14, crack.calculate_shift("e", "s")
     assert_equal 5, crack.calculate_shift("n", "s")
     assert_equal 5, crack.calculate_shift("d", "i")
+    assert_equal 26, crack.calculate_shift("s", "r")
   end
 
   def test_it_can_organize_shift_values

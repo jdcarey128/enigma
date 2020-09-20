@@ -44,7 +44,7 @@ class Enigma
     if date == nil
       shift = Shift.new(message, CrackCode.new(message).produce_key)
     else
-      shift = Shift.new(message, CrackCode.new(message, @date).produce_key, date)
+      shift = Shift.new(message, CrackCode.new(message, date).produce_key, date)
     end
     Messenger.new(shift.decrypt_message.join, @new_message_destination).write_message
     { decryption: shift.decrypt_message.join, key: shift.key, date: shift.date }

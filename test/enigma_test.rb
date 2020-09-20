@@ -93,7 +93,7 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, File.open(file_destination).read
   end
 
-  def test_it_can_crack_an_encryption_without_key_ccc
+  def test_it_can_crack_an_encryption_without_key
     Date.stubs(:today).returns(Date.new(2018,10,29))
     enigma = Enigma.new
     expected = {

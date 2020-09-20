@@ -23,6 +23,4 @@ class Messenger
     encryption.close
   end
 
-  
-
 end
