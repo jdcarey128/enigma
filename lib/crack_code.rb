@@ -46,6 +46,12 @@ class CrackCode
     end
   end
 
-
+  def organize_shift_values
+    shift_values = {}
+    merge_indices.each_value do |value|
+      shift_values[value[:shift]] = calculate_shift(value[:decrypted], value[:encrypted])
+    end
+    shift_values
+  end
 
 end

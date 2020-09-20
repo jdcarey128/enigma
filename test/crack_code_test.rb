@@ -49,7 +49,7 @@ class CrackCodeTest < Minitest::Test
     'b'=> 5,
     'c'=> 5
                 }
-    assert_equal expected, crack.merge_indices
+    assert_equal expected, crack.organize_shift_values
   end
 
   def test_it_can_calculate_key_with_date
