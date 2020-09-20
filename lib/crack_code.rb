@@ -28,9 +28,9 @@ class CrackCode
   end
 
   def merge_indices
-    merged_indices = {}
+    decrypted = splitter(' end')
     assign_index(@message[-4..-1]).merge(assign_index(match_sequence)) do |index, letter, shift|
-      merged_indices[index] = {letter: letter, shift: shift}
+      {shift: shift, encrypted: letter, decrypted: decrypted[index]}
     end
   end
 
