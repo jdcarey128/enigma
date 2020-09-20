@@ -1,3 +1,3 @@
 require './lib/enigma'
-enigma = Enigma.new(ARGV.first, ARGV[1], nil, ARGV[2]).decrypt
+enigma = Enigma.new(ARGV.first, ARGV[1], ARGV[2], ARGV[3]).crack
 puts "Created #{ARGV[1]} with the key #{enigma[:key]} and date #{enigma[:date]}"
