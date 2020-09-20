@@ -104,4 +104,15 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.crack("vjqtbeaweqihssi", "291018")
   end
 
+  def test_it_can_crack_an_encryption_without_key_or_date
+    Date.stubs(:today).returns(Date.new(2020,9,20))
+    enigma = Enigma.new
+    expected = {
+        decryption: "hello universe end",
+        date: "200920",
+        key: "03511"
+      }
+    assert_equal expected, enigma.crack("kyzmrtholossvynfqx")
+  end
+
 end
