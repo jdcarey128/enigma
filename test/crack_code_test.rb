@@ -8,9 +8,10 @@ class CrackCodeTest < Minitest::Test
     assert_equal "vjqtbeaweqihssi", crack.message
   end
 
-  def test_it_can_count_message_size
+  def test_it_can_produce_a_matching_array_with_shifts
     crack = CrackCode.new("vjqtbeaweqihssi")
-    assert_equal 15, crack.message_size 
+    expected = ['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd', 'a', 'b', 'c', 'd', 'a', 'b', 'c']
+    assert_equal expected, crack.match_sequence
   end
 
 end
