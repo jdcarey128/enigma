@@ -82,7 +82,7 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, File.open(file_destination).read
   end
 
-  def test_it_can_write_encryption_to_file_aaa
+  def test_it_can_write_encryption_to_file
     file_location = './lib/enigma_decrypt_sample.txt'
     file_destination = './lib/decrypted_sample.txt'
     File.truncate(file_destination, 0)
@@ -93,8 +93,7 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, File.open(file_destination).read
   end
 
-  def test_it_can_crack_an_encryption_without_key
-    skip 
+  def test_it_can_crack_an_encryption_without_key_ccc
     enigma = Enigma.new
     expected = {
         decryption: "hello world end",

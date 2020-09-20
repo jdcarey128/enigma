@@ -40,7 +40,13 @@ class Enigma
   end
 
   def crack(message = @message, date = @date)
-    new_message = CrackCode.new(message)
+    if date == nil
+      shift = Shift.new(message, CrackCode.new(message).produce_key)
+    else
+      shift = Shift.new(message, CrackCode.new(message).produce_key, date)
+    end
+    Messenger.new(shift.decrypt_message.join, @new_message_destination).write_message
+    { decryption: shift.decrypt_message.join, key: shift.key, date: shift.date }
   end
 
 end
