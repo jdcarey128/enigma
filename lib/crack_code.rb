@@ -16,7 +16,7 @@ class CrackCode
       shift_sequence << letters.first
       letters.rotate!
     end
-    shift_sequence.join
+    shift_sequence.join[-4..-1]
   end
 
   def assign_index(object)
@@ -29,7 +29,7 @@ class CrackCode
 
   def merge_indices
     merged_indices = {}
-    assign_index(@message).merge(assign_index(match_sequence)) do |index, letter, shift|
+    assign_index(@message[-4..-1]).merge(assign_index(match_sequence)) do |index, letter, shift|
       merged_indices[index] = {letter: letter, shift: shift}
     end
   end
