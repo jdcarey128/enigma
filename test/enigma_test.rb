@@ -82,7 +82,7 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, File.open(file_destination).read
   end
 
-  def test_it_can_write_encryption_to_file_aaa
+  def test_it_can_write_encryption_to_file
     file_location = './lib/enigma_decrypt_sample.txt'
     file_destination = './lib/decrypted_sample.txt'
     File.truncate(file_destination, 0)
@@ -91,6 +91,28 @@ class EnigmaTest < Minitest::Test
     expected =  "hello world"
     enigma.decrypt
     assert_equal expected, File.open(file_destination).read
+  end
+
+  def test_it_can_crack_an_encryption_without_key
+    Date.stubs(:today).returns(Date.new(2018,10,29))
+    enigma = Enigma.new
+    expected = {
+        decryption: "hello world end",
+        date: "291018",
+        key: "08304"
+      }
+    assert_equal expected, enigma.crack("vjqtbeaweqihssi", "291018")
+  end
+
+  def test_it_can_crack_an_encryption_without_key_or_date_ccc
+    Date.stubs(:today).returns(Date.new(2020,9,20))
+    enigma = Enigma.new
+    expected = {
+        decryption: "hello universe end",
+        date: "200920",
+        key: "03511"
+      }
+    assert_equal expected, enigma.crack("qqiwxlryrgbbaqxpwp")
   end
 
 end
