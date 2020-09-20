@@ -1,13 +1,16 @@
-require 'splitable'
+require './lib/splitable'
+require './lib/offset_generator'
 
 class CrackCode
   include Splitable
   attr_reader :message
 
-  def initialize(message)
+  def initialize(message, date = OffsetGenerator.new.date)
     @message = message
-    @shift_key_letters = ('a'..'d').to_a
+    @date = date
+    @alphabet = ('a'..'z').to_a << ' '
   end
+
 
   def match_sequence
     shift_sequence = []

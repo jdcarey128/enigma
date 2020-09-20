@@ -51,7 +51,7 @@ class Shift
   def decrypt_letter(letter, shift_value)
     shift_value = shift_reducer(shift_value)
     if @alphabet.index(letter) == nil
-      letter 
+      letter
     elsif (@alphabet.index(letter) - shift_value) < 0
       letter = @alphabet.fetch(@alphabet.index(letter) - shift_value + 27)
     else

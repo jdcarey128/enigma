@@ -2,7 +2,7 @@ require './test/test_helper'
 
 class CrackCodeTest < Minitest::Test
 
-  def test_it_exists_and_has_attributes
+  def test_it_exists_and_has_attributes_bbb
     crack = CrackCode.new("vjqtbeaweqihssi")
     assert_instance_of CrackCode, crack
     assert_equal "vjqtbeaweqihssi", crack.message

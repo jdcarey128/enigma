@@ -94,6 +94,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_crack_an_encryption_without_key
+    skip 
     enigma = Enigma.new
     expected = {
         decryption: "hello world end",
