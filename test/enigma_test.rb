@@ -93,4 +93,14 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, File.open(file_destination).read
   end
 
+  def test_it_can_crack_an_encryption_without_key
+    enigma = Enigma.new
+    expected = {
+        decryption: "hello world end",
+        date: "291018",
+        key: "08304"
+      }
+    assert_equal expected, enigma.crack("vjqtbeaweqihssi", "291018")
+  end
+
 end
