@@ -56,8 +56,10 @@ class CrackCode
 
   def calculate_lowest_shift_keys
     organize_shift_values.merge(@offsets) do |shift, total_shift, offset|
-      total_shift - offset.to_i
+      '%02d' % (total_shift - offset.to_i).to_s 
     end
   end
+
+
 
 end

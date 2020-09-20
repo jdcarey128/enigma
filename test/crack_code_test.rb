@@ -55,8 +55,15 @@ class CrackCodeTest < Minitest::Test
   def test_it_can_calculate_lowest_possible_shift_keys
     Date.stubs(:today).returns(Date.new(2018,10,29))
     crack = CrackCode.new("vjqtbeaweqihssi")
-    expected = {'a' => 8, 'b' => 2, 'c' => 3, 'd' => 4}
+    expected = {'a' => "08", 'b' => "02", 'c' => "03", 'd' => "04"}
     assert_equal expected, crack.calculate_lowest_shift_keys
+  end
+
+  def test_it_can_increase_shift_key_to_match_preceding_keys_2nd_digit
+    Date.stubs(:today).returns(Date.new(2018,10,29))
+    crack = CrackCode.new("vjqtbeaweqihssi")
+    expected = {'a' => "08", 'b' => "83", 'c' => "30", 'd' => "04"}
+    assert_equal expected, crack.adjust_keys
   end
 
 end
