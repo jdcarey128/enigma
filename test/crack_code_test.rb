@@ -41,4 +41,22 @@ class CrackCodeTest < Minitest::Test
     assert_equal 5, crack.calculate_shift("d", "i")
   end
 
+  def test_it_can_organize_shift_values
+    crack = CrackCode.new("vjqtbeaweqihssi")
+    expected = {
+    'd'=> 8,
+    'a'=> 14,
+    'b'=> 5,
+    'c'=> 5
+                }
+    assert_equal expected, crack.merge_indices
+  end
+
+  def test_it_can_calculate_key_with_date
+    skip
+    Date.stubs(:today).returns(Date.new(2018,10,29))
+    crack = CrackCode.new("vjqtbeaweqihssi")
+    require "pry"; binding.pry
+  end
+
 end

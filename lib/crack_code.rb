@@ -3,11 +3,12 @@ require './lib/offset_generator'
 
 class CrackCode
   include Splitable
-  attr_reader :message
+  attr_reader :message, :date, :offsets
 
   def initialize(message, date = OffsetGenerator.new.date)
     @message = message
     @date = date
+    @offsets = OffsetGenerator.new(date).shift_offsets
     @alphabet = ('a'..'z').to_a << ' '
   end
 
@@ -44,5 +45,7 @@ class CrackCode
       @alphabet.index(encrypted_value) - @alphabet.index(decrypted_value)
     end
   end
+
+
 
 end
