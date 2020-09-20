@@ -52,11 +52,11 @@ class CrackCodeTest < Minitest::Test
     assert_equal expected, crack.organize_shift_values
   end
 
-  def test_it_can_calculate_key_with_date
-    skip
+  def test_it_can_calculate_lowest_possible_shift_keys
     Date.stubs(:today).returns(Date.new(2018,10,29))
     crack = CrackCode.new("vjqtbeaweqihssi")
-    require "pry"; binding.pry
+    expected = {'a' => 8, 'b' => 2, 'c' => 3, 'd' => 4}
+    assert_equal expected, crack.calculate_lowest_shift_keys
   end
 
 end
