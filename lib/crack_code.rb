@@ -1,3 +1,12 @@
 class CrackCode
+  attr_reader :message
 
-end 
+  def initialize(message)
+    @message = message
+  end
+
+  def message_size
+    @message.size
+  end
+
+end

@@ -40,6 +40,7 @@ class Enigma
   end
 
   def crack(message = @message, date = @date)
+    new_message = CrackCode.new(message)
   end
 
 end
