@@ -56,10 +56,24 @@ class CrackCode
 
   def calculate_lowest_shift_keys
     organize_shift_values.merge(@offsets) do |shift, total_shift, offset|
-      '%02d' % (total_shift - offset.to_i).to_s 
+      '%02d' % (total_shift - offset.to_i).to_s
     end
   end
 
+  def adjust_keys
+    count = 0
+    letters = ('a'..'d').to_a
+    iteration_letters = ('a'..'d').to_a
+    shift_keys = calculate_lowest_shift_keys()
+    iteration_letters.each do |letter|
+      until shift_keys[letters[1]][0].to_i == shift_keys[letter][1].to_i
+        shift_keys[letters[1]] = (shift_keys[letters[1]].to_i + 27).to_s
+      end
+      letters.rotate!
+      count += 1
+      return shift_keys if count == 3
+    end
+  end
 
 
 end
