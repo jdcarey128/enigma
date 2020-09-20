@@ -75,5 +75,8 @@ class CrackCode
     end
   end
 
+  def produce_key
+    adjust_keys['a'] + adjust_keys['b'][1] + adjust_keys['d']
+  end
 
 end
