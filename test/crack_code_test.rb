@@ -67,7 +67,14 @@ class CrackCodeTest < Minitest::Test
     assert_equal expected, crack.adjust_keys
   end
 
-  def test_it_can_merge_shift_keys_into_single_key_ccc
+  def test_it_can_adjust_shift_keys_including_a_shift_key
+    Date.stubs(:today).returns(Date.new(2020,9,21))
+    crack = CrackCode.new("fcl mytwcywcpjdocld")
+    expected = {'a'=> "40", 'b' => '05', 'c' => '53', 'd' => '36'}
+    assert_equal expected, crack.adjust_keys
+  end
+
+  def test_it_can_merge_shift_keys_into_single_key
     Date.stubs(:today).returns(Date.new(2018,10,29))
     crack = CrackCode.new("vjqtbeaweqihssi")
     assert_equal "08304", crack.produce_key

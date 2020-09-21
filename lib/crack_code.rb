@@ -72,6 +72,7 @@ class CrackCode
       end
       letters.rotate!
       count += 1
+      require "pry"; binding.pry
       return shift_keys if count == 3
     end
   end
