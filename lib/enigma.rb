@@ -2,7 +2,7 @@ require './lib/key_generator'
 require './lib/offset_generator'
 require './lib/shift'
 require './lib/messenger'
-require './lib/crack_code'
+require './lib/crack_key'
 
 class Enigma
   attr_reader :message_file,
@@ -26,28 +26,37 @@ class Enigma
   end
 
   def encrypt(message = @message, key = @key, date = @date)
-    shift = Shift.new(message) if date == nil && key == nil
-    shift = Shift.new(message, key) if date == nil && key != nil
-    shift = Shift.new(message, key, date) if date != nil && key != nil
+    if date == nil && key == nil
+      shift = Shift.new(message)
+    elsif date == nil && key != nil
+      shift = Shift.new(message, key)
+    elsif date != nil && key != nil
+      shift = Shift.new(message, key, date)
+    end
     Messenger.new(shift.encrypt_message.join, @new_message_destination).write_message
     result = { encryption: shift.encrypt_message.join, key: shift.key, date: shift.date }
   end
 
   def decrypt(message = @message, key = @key, date = @date)
-    shift = Shift.new(message, key) if date == nil
-    shift = Shift.new(message, key, date) if date != nil
+    if date == nil
+      shift = Shift.new(message, key)
+    elsif date != nil
+      shift = Shift.new(message, key, date)
+    end
     Messenger.new(shift.decrypt_message.join, @new_message_destination).write_message
     { decryption: shift.decrypt_message.join, key: shift.key, date: shift.date }
   end
 
   def crack(message = @message, date = @date)
     if date == nil
-      shift = Shift.new(message, CrackCode.new(message).produce_key)
+      key = CrackKey.new(message).produce_key
+      shift = Shift.new(message, key)
     else
-      shift = Shift.new(message, CrackCode.new(message, date).produce_key, date)
+      key = CrackKey.new(message, date).produce_key
+      shift = Shift.new(message, key, date)
     end
     Messenger.new(shift.decrypt_message.join, @new_message_destination).write_message
-    { decryption: shift.decrypt_message.join, key: shift.key, date: shift.date }
+    { decryption: shift.decrypt_message.join, key: key, date: shift.date }
   end
 
 end
