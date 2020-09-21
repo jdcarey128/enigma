@@ -39,9 +39,8 @@ class CrackCode
   end
 
   def calculate_shift(decrypted_value, encrypted_value)
-    # require "pry"; binding.pry
     if (@alphabet.index(encrypted_value) - @alphabet.index(decrypted_value)) < 0
-      (27 - @alphabet.index(decrypted_value)) + @alphabet.index(encrypted_value)
+      27 - (@alphabet.index(decrypted_value) - @alphabet.index(encrypted_value))
     else
       @alphabet.index(encrypted_value) - @alphabet.index(decrypted_value)
     end
@@ -72,7 +71,7 @@ class CrackCode
       end
       letters.rotate!
       count += 1
-      require "pry"; binding.pry
+      # require "pry"; binding.pry
       return shift_keys if count == 3
     end
   end

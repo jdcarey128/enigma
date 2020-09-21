@@ -33,13 +33,16 @@ class CrackCodeTest < Minitest::Test
     assert_equal expected, crack.merge_indices
   end
 
-  def test_it_can_calculate_the_shift_between_encrypted_and_decrypted
+  def test_it_can_calculate_the_shift_between_encrypted_and_decrypted_zzz
     crack = CrackCode.new("vjqtbeaweqihssi")
     assert_equal 8, crack.calculate_shift(" ", "h")
     assert_equal 14, crack.calculate_shift("e", "s")
     assert_equal 5, crack.calculate_shift("n", "s")
     assert_equal 5, crack.calculate_shift("d", "i")
-    assert_equal 26, crack.calculate_shift("s", "r")
+    assert_equal 15, crack.calculate_shift(" ", "o")
+    assert_equal 25, crack.calculate_shift("e", "c")
+    assert_equal 25, crack.calculate_shift("n", "l")
+    assert_equal 0, crack.calculate_shift("d", "d")
   end
 
   def test_it_can_organize_shift_values
@@ -67,7 +70,7 @@ class CrackCodeTest < Minitest::Test
     assert_equal expected, crack.adjust_keys
   end
 
-  def test_it_can_adjust_shift_keys_including_a_shift_key
+  def test_it_can_adjust_shift_keys_including_a_shift_key_aaa
     Date.stubs(:today).returns(Date.new(2020,9,21))
     crack = CrackCode.new("fcl mytwcywcpjdocld")
     expected = {'a'=> "40", 'b' => '05', 'c' => '53', 'd' => '36'}
