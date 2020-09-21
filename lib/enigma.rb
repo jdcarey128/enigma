@@ -2,7 +2,7 @@ require './lib/key_generator'
 require './lib/offset_generator'
 require './lib/shift'
 require './lib/messenger'
-require './lib/crack_code'
+require './lib/crack_key'
 
 class Enigma
   attr_reader :message_file,
@@ -32,7 +32,7 @@ class Enigma
       shift = Shift.new(message, key)
     elsif date != nil && key != nil
       shift = Shift.new(message, key, date)
-    end 
+    end
     Messenger.new(shift.encrypt_message.join, @new_message_destination).write_message
     result = { encryption: shift.encrypt_message.join, key: shift.key, date: shift.date }
   end
@@ -49,10 +49,10 @@ class Enigma
 
   def crack(message = @message, date = @date)
     if date == nil
-      key = CrackCode.new(message).produce_key
+      key = CrackKey.new(message).produce_key
       shift = Shift.new(message, key)
     else
-      key = CrackCode.new(message, date).produce_key
+      key = CrackKey.new(message, date).produce_key
       shift = Shift.new(message, key, date)
     end
     Messenger.new(shift.decrypt_message.join, @new_message_destination).write_message

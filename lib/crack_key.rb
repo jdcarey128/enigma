@@ -1,7 +1,7 @@
 require './lib/listable'
 require './lib/offset_generator'
 
-class CrackCode
+class CrackKey
   include Listable
   attr_reader :message, :date, :offsets
 
