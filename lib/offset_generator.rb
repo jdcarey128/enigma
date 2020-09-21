@@ -1,8 +1,8 @@
-require './lib/splitable'
+require './lib/listable'
 require 'date'
 
 class OffsetGenerator
-  include Splitable
+  include Listable
 
   attr_reader :date
 

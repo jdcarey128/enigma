@@ -1,4 +1,4 @@
-module Splitable
+module Listable
 
   def splitter(object)
     object.split('')

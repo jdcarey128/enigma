@@ -1,7 +1,7 @@
-require './lib/splitable'
+require './lib/listable'
 
 class KeyGenerator
-  include Splitable
+  include Listable
 
   attr_reader :key, :key_digit_count, :shift_key_letters
 

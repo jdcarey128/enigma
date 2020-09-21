@@ -1,8 +1,8 @@
-require './lib/splitable'
+require './lib/listable'
 require './lib/offset_generator'
 
 class CrackCode
-  include Splitable
+  include Listable
   attr_reader :message, :date, :offsets
 
   def initialize(message, date = OffsetGenerator.new.date)
@@ -71,7 +71,6 @@ class CrackCode
       end
       letters.rotate!
       count += 1
-      # require "pry"; binding.pry
       return shift_keys if count == 3
     end
   end

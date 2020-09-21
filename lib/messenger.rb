@@ -1,7 +1,7 @@
-require './lib/splitable'
+require './lib/listable'
 
 class Messenger
-  include Splitable
+  include Listable
 
   attr_reader :message, :file_destination
 
