@@ -39,7 +39,7 @@ class CrackKey
 
   def calculate_shift(decrypted_value, encrypted_value)
     if (@alphabet.index(encrypted_value) - @alphabet.index(decrypted_value)) < 0
-      27 - (@alphabet.index(decrypted_value) - @alphabet.index(encrypted_value))
+      (27 - @alphabet.index(decrypted_value)) + @alphabet.index(encrypted_value)
     else
       @alphabet.index(encrypted_value) - @alphabet.index(decrypted_value)
     end
