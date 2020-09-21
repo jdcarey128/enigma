@@ -8,7 +8,7 @@ class KeyGenerator
   def initialize(key = KeyGenerator.generate_key)
     @key = key
     @shift_keys = {}
-    @key_digit_count = (0..@key.size).to_a
+    @key_digit_count = (0..4).to_a
     @shift_key_letters = ('a'..'d').to_a
   end
 
