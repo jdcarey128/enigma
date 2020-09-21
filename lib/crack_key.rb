@@ -12,7 +12,6 @@ class CrackKey
     @alphabet = get_alphabet
   end
 
-
   def match_sequence
     shift_sequence = []
     letters = get_shifts.to_a
