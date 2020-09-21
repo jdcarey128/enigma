@@ -5,6 +5,7 @@
 
 1. OOP: 3.5
 - This project encapsulates classes in a logical manner with each containing a specific function. The 'Listable' module helps to DRY out the code shared between several classes. However, more robust modules could be implemented to further DRY the code. The classes are as follows:  
+
   *KeyGenerator: Splits provided key into A, B, C, and D shift keys. It will randomly generate a 5-digit key if one is not provided.*  
   *OffsetGenerator: Splits provided date (or 'Today's date') into A, B, C, and D shift offsets.*  
   *Shift: Combine shift keys and offsets and encrypts/decrypts message based on those shifts.*  
