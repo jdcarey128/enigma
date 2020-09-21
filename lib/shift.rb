@@ -12,7 +12,7 @@ class Shift
     @key = key
     @date = date
     @shift_values = shift_values()
-    @alphabet = ('a'..'z').to_a << ' '
+    @alphabet = get_alphabet
   end
 
   def shift_keys

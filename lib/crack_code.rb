@@ -9,13 +9,13 @@ class CrackCode
     @message = message
     @date = date
     @offsets = OffsetGenerator.new(date).shift_offsets
-    @alphabet = ('a'..'z').to_a << ' '
+    @alphabet = get_alphabet
   end
 
 
   def match_sequence
     shift_sequence = []
-    letters = ('a'..'d').to_a
+    letters = get_shifts.to_a
     @message.size.times do
       shift_sequence << letters.first
       letters.rotate!
@@ -62,8 +62,8 @@ class CrackCode
 
   def adjust_keys
     count = 0
-    letters = ('a'..'d').to_a
-    iteration_letters = ('a'..'d').to_a
+    letters = get_shifts.to_a
+    iteration_letters = get_shifts.to_a
     shift_keys = calculate_lowest_shift_keys()
     iteration_letters.each do |letter|
       until shift_keys[letters[1]][0].to_i == shift_keys[letter][1].to_i

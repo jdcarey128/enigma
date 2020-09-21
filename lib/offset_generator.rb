@@ -9,7 +9,7 @@ class OffsetGenerator
   def initialize(date = get_date)
     @date = date
     @shift_offsets = {}
-    @shift_offset_letters = ('a'..'d').to_a
+    @shift_offset_letters = get_shifts.to_a
   end
 
   def square_date

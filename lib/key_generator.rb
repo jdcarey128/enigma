@@ -9,7 +9,7 @@ class KeyGenerator
     @key = key
     @shift_keys = {}
     @key_digit_count = (0..4).to_a
-    @shift_key_letters = ('a'..'d').to_a
+    @shift_key_letters = get_shifts.to_a
   end
 
   def self.generate_key
