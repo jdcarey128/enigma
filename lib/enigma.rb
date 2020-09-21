@@ -26,16 +26,23 @@ class Enigma
   end
 
   def encrypt(message = @message, key = @key, date = @date)
-    shift = Shift.new(message) if date == nil && key == nil
-    shift = Shift.new(message, key) if date == nil && key != nil
-    shift = Shift.new(message, key, date) if date != nil && key != nil
+    if date == nil && key == nil
+      shift = Shift.new(message)
+    elsif date == nil && key != nil
+      shift = Shift.new(message, key)
+    elsif date != nil && key != nil
+      shift = Shift.new(message, key, date)
+    end 
     Messenger.new(shift.encrypt_message.join, @new_message_destination).write_message
     result = { encryption: shift.encrypt_message.join, key: shift.key, date: shift.date }
   end
 
   def decrypt(message = @message, key = @key, date = @date)
-    shift = Shift.new(message, key) if date == nil
-    shift = Shift.new(message, key, date) if date != nil
+    if date == nil
+      shift = Shift.new(message, key)
+    elsif date != nil
+      shift = Shift.new(message, key, date)
+    end
     Messenger.new(shift.decrypt_message.join, @new_message_destination).write_message
     { decryption: shift.decrypt_message.join, key: shift.key, date: shift.date }
   end
